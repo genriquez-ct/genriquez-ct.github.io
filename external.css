@@ -2255,20 +2255,31 @@ body.elementor-editor-active header {
 #donorConnect #wrapper.home.singleColumn #contentArea #leftPane {
           padding: 0;
         }
+#donorConnect #wrapper.home.singleColumn #contentArea #leftPane .largetext p {
+              font-size: 1.5rem;
+              line-height: 140%;
+            }
 #donorConnect #wrapper.home.singleColumn #contentArea #rightPane {
           margin-left: 0;
           width: auto;
+          background-color: #f5f5f5;
+          padding: 1rem;
         }
+#donorConnect #wrapper.home.singleColumn #contentArea #rightPane .DTGrid span[id*="gotopage" i] {
+              display: block;
+              margin-top: 1rem;
+            }
 @media (min-width: 768px) {
 #donorConnect #wrapper.home.singleColumn #contentArea {
           flex-direction: row;
-          padding: 27px 27px 70px
+          padding: 40px 27px 70px
       }
 
           #donorConnect #wrapper.home.singleColumn #contentArea #rightPane {
-            margin-left: 27px;    
-            width: 339px;
             flex-shrink: 0;
+            width: 400px;
+            padding: 2rem;
+            margin-left: 4rem;    
           }
         }
 #donorConnect #rightPane table {
@@ -2297,7 +2308,7 @@ body.elementor-editor-active header {
             width: 0 !important;
         }
 #donorConnect #rightPane > div:not(:last-child) {
-          margin-bottom: 27px;
+          margin-bottom: 1.25rem;
         }
 #donorConnect #rightPane h3::first-letter {
           text-transform: capitalize;
