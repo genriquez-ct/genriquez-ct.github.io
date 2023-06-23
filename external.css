@@ -2245,27 +2245,27 @@ body.elementor-editor-active header {
 #donorConnect form {
         display: inline;
     }
-#donorConnect.home.singleColumn #contentArea {
+#donorConnect .home.singleColumn #contentArea {
       display: flex;
       flex-direction: column;
       max-width: 1190px;
       margin: 0 auto;
       padding: 27px;
     }
-#donorConnect.home.singleColumn #contentArea #leftPane {
+#donorConnect .home.singleColumn #contentArea #leftPane {
         padding: 0;
       }
-#donorConnect.home.singleColumn #contentArea #rightPane {
+#donorConnect .home.singleColumn #contentArea #rightPane {
         margin-left: 0;
         width: auto;
       }
 @media (min-width: 768px) {
-#donorConnect.home.singleColumn #contentArea {
+#donorConnect .home.singleColumn #contentArea {
         flex-direction: row;
         padding: 27px 27px 4rem
     }
 
-        #donorConnect.home.singleColumn #contentArea #rightPane {
+        #donorConnect .home.singleColumn #contentArea #rightPane {
           margin-left: 27px;    
           width: 339px;
         }
