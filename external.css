@@ -2262,12 +2262,13 @@ body.elementor-editor-active header {
 @media (min-width: 768px) {
 #donorConnect #wrapper.home.singleColumn #contentArea {
           flex-direction: row;
-          padding: 27px 27px 4rem
+          padding: 27px 27px 70px
       }
 
           #donorConnect #wrapper.home.singleColumn #contentArea #rightPane {
             margin-left: 27px;    
             width: 339px;
+            flex-shrink: 0;
           }
         }
 #donorConnect #rightPane table {
@@ -4763,7 +4764,7 @@ body.elementor-editor-active header {
 #donorConnect #wrapper.twoColumn #contentArea #rightPane {
                     width: 33.68%;
                     display: block;
-                    margin-top: 240px;
+                    margin: 240px 0 70px;
                     padding: 0 2.69% 0 0
             }
     
