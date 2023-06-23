@@ -2255,10 +2255,10 @@ body.elementor-editor-active header {
 #donorConnect #wrapper.home.singleColumn #contentArea #leftPane {
           padding: 0;
         }
-#donorConnect #wrapper.home.singleColumn #contentArea #leftPane .largetext p {
-              font-size: 1.5rem;
-              line-height: 140%;
-            }
+#donorConnect #wrapper.home.singleColumn #contentArea #leftPane p.largetext {
+            font-size: 1.5rem;
+            line-height: 140%;
+          }
 #donorConnect #wrapper.home.singleColumn #contentArea #rightPane {
           margin-left: 0;
           width: auto;
