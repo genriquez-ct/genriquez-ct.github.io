@@ -5158,7 +5158,7 @@ html, body {
 #donorConnect #content #contentArea.is-logged-in {
                 margin-top: 4rem;
             }
-#donorConnect #content #contentArea.is-logged-in #PC12709_trLogout input[type="button"] {
+#donorConnect #content #contentArea.is-logged-in [id*="trLogout" i] input[type="button"] {
                     background: #00B2C2;
                     height: 40px;
                     display: inline-block;
