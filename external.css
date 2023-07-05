@@ -911,6 +911,9 @@ video {
 .flex-col{
 	flex-direction: column;
 }
+.flex-wrap{
+	flex-wrap: wrap;
+}
 .content-center{
 	align-content: center;
 }
@@ -1295,6 +1298,10 @@ video {
 	padding-left: 0.5rem;
 	padding-right: 0.5rem;
 }
+.px-3{
+	padding-left: 0.75rem;
+	padding-right: 0.75rem;
+}
 .px-4{
 	padding-left: 1rem;
 	padding-right: 1rem;
@@ -1306,6 +1313,10 @@ video {
 .px-8{
 	padding-left: 2rem;
 	padding-right: 2rem;
+}
+.py-1{
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem;
 }
 .py-10{
 	padding-top: 2.5rem;
@@ -1454,6 +1465,9 @@ video {
 .leading-normal{
 	line-height: 1.5;
 }
+.leading-tight{
+	line-height: 1.25;
+}
 .tracking-\[2px\]{
 	letter-spacing: 2px;
 }
@@ -1504,6 +1518,9 @@ video {
 }
 .outline-gold{
 	outline-color: #FFB71B;
+}
+.filter{
+	filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 .transition-\[margin\]{
 	transition-property: margin;
@@ -2307,7 +2324,7 @@ body.elementor-editor-active header {
 #donorConnect #rightPane .DonorGrantFieldCaption {
             width: 0 !important;
         }
-#donorConnect #rightPane > div:not(:last-child) {
+#donorConnect #rightPane > div:not(:last-child):not(:empty) {
           margin-bottom: 1.25rem;
         }
 #donorConnect #rightPane h3::first-letter {
@@ -5138,6 +5155,30 @@ html, body {
             line-height: 140%;
             color: #646864;
         }
+#donorConnect #content #contentArea.is-logged-in {
+                margin-top: 4rem;
+            }
+#donorConnect #content #contentArea.is-logged-in #PC12709_trLogout input[type="button"] {
+                    background: #00B2C2;
+                    height: 40px;
+                    display: inline-block;
+                    margin: 0 0 2rem;
+                    padding: 12px 30px;
+                    cursor: pointer;
+                    color: #FFFFFF;
+                    font-family: 'Montserrat';
+                    font-style: normal;
+                    font-weight: 800;
+                    font-size: 14px;
+                    line-height: 16px;
+                    letter-spacing: 2px;
+                    text-transform: uppercase;
+                    border: 0;
+                }
+#donorConnect #content #contentArea.is-logged-in .LoginFormNormalMessage {
+                    display: block;
+                    margin-bottom: 1rem;
+                }
 #donorConnect #content #contentArea #leftPane {
                 padding: 0 6.4% 70px;
             }
@@ -5161,7 +5202,9 @@ html, body {
                         width: auto
                 }
                             #donorConnect #content #contentArea #leftPane table td.BBFieldCaption {
+                                width: 0%;
                                 padding-right: 10px;
+                                white-space: nowrap;
                             }
                             #donorConnect #content #contentArea #leftPane table td.BBFieldControlCell {
                                 width: 375px;
@@ -5481,6 +5524,9 @@ html, body {
 	left: 0px;
 	height: 100%;
 	width: 100%;
+}
+.fully-clickable {
+	cursor: pointer;
 }
 /* Vendors */
 /*! purgecss start ignore */
