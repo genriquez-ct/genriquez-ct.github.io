@@ -3821,6 +3821,8 @@ body.elementor-editor-active header {
 #donorConnect .whiteBox {
         position: relative;
         margin-top: 27px;
+        background-color: #f5f5f5;
+        padding: 1.25rem;
     }
 #donorConnect .container100 {
         overflow: hidden;
