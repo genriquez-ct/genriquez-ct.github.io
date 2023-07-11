@@ -2259,6 +2259,9 @@ body.elementor-editor-active header {
 	}
 }
 /* extrapolated from: https://connect.calfund.org/file/template-files/stylesheets/screen.css */
+#donorConnect {
+    --right-pane-width: 339px;
+}
 #donorConnect form {
         display: inline;
     }
@@ -2299,6 +2302,43 @@ body.elementor-editor-active header {
             margin-left: 4rem;    
           }
         }
+#donorConnect #wrapper.twoColumn #contentArea #leftPane.approved-grants {
+            /* Expanded for wide table content */
+            width: 880px;
+
+          }
+#donorConnect #wrapper.twoColumn #contentArea #leftPane.approved-grants h1 {
+              /* To keep it centered */
+              width: calc(100% + var(--right-pane-width));
+            }
+#donorConnect #wrapper.twoColumn #contentArea #leftPane.approved-grants table {
+              width: 100%;
+            }
+#donorConnect #wrapper.twoColumn #contentArea #leftPane.approved-grants table:not(:last-child) {
+                margin-bottom: 1rem;
+              }
+#donorConnect #wrapper.twoColumn #contentArea #leftPane.approved-grants #PC12674_ctl00_sasdSharedAlphaSelect_pnlAlphaSelect {
+              display: flex;
+              justify-content: center;
+            }
+#donorConnect #wrapper.twoColumn #contentArea #leftPane.approved-grants #PC12674_ctl00_sasdSharedAlphaSelect_pnlAlphaSelect a {
+                padding: 0 2px;
+              }
+#donorConnect #wrapper.twoColumn #contentArea #leftPane.approved-grants #PC12674_ctl00_tdGrantDetails_pnlUserSize table.DTGrid {
+                margin-top: 1rem;
+                width: 100%;
+              }
+#donorConnect #wrapper.twoColumn #contentArea #leftPane.approved-grants #PC12674_ctl00_tdGrantDetails_pnlUserSize table.DTGrid span#PC12674_ctl00_tdGrantDetails_lblPageSize {
+                  display: inline-block;
+                  margin-bottom: 1rem;
+                }
+#donorConnect #wrapper.twoColumn #contentArea #leftPane.approved-grants #PC12674_ctl00_tdGrantDetails_pnlUserSize table.DTGrid input[type="text"] {
+                  max-width: unset;
+                  margin: 0;
+                }
+#donorConnect #wrapper.twoColumn #contentArea #leftPane.approved-grants #PC12674_ctl00_tdGrantDetails_pnlUserSize table.DTGrid input[type="submit"] {
+                  margin: 0 0 2rem !important;
+                }
 #donorConnect #rightPane table {
             width: 100%;
         }
@@ -3274,6 +3314,9 @@ body.elementor-editor-active header {
 #donorConnect #content #leftPane table {
                 width: 100%;
             }
+#donorConnect #content #leftPane table.layoutTable a.button {
+                        margin-right: 1rem;
+                    }
 #donorConnect #content #rightPane {
             width: 30.99%;
             float: right;
@@ -4741,6 +4784,34 @@ body.elementor-editor-active header {
         }
     }
 /* extrapolated from https://applyforgrants.calfund.org/SpectrumWebPortal/Content/Custom.css?v=11305 */
+#SW_page_wrapper {
+    min-height: 100vh;
+}
+#SW_page_wrapper #SW_page_spacer {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+#SW_page_wrapper #SW_headerSM .mobile-menu__container .mobile-menu__left {
+                flex: 1;
+            }
+#SW_page_wrapper #SW_headerSM .mobile-menu__container .mobile-menu__right {
+                flex: 1;
+                display: flex;
+                justify-content: flex-end;
+            }
+#SW_page_wrapper #SW_mainSM {
+        flex-grow: 1;
+    }
+body > div[id^="SW_"] {
+    --content-max-width: 1010px;
+    --top-heading-height: 220px;
+    --content-y-gutter: 64px;
+    --content-y-gutter-mobile: 32px;
+    --top-offset: calc(var(--top-heading-height) + var(--content-y-gutter));
+    --top-offset-mobile: calc(var(--top-heading-height) + var(--content-y-gutter-mobile));   
+}
 body > div[id^="SW_"] img {
         border-style: none;
     }
@@ -4945,13 +5016,13 @@ body > div[id^="SW_"] .footerOffsetColumn {
         padding-top: 3.55em;
     }
 body > div[id^="SW_"] .sw-center-750 {
-        margin: 0;
+        margin: auto;
     }
 body > div[id^="SW_"] .sw-center-650 {
-        margin: 0;
+        margin: auto;
     }
 body > div[id^="SW_"] .sw-center-500 {
-        margin: 0;
+        margin: auto;
     }
 body > div[id^="SW_"] .sw-saved-app-box {
         border-radius: 0px;
@@ -4975,12 +5046,18 @@ body > div[id^="SW_"] #TC_content {
     }
 body > div[id^="SW_"] #SW_mainSM {
         max-width: 1200px;
-        min-width: 1010px;
+        width: 100%;
         margin: 0 auto;
+        padding: 0;
     }
+@media (min-width: 1024px) {
+body > div[id^="SW_"] #SW_mainSM {
+            min-width: var(--content-max-width)
+    }
+        }
 body > div[id^="SW_"] #SW_app_spacer {
         max-width: 1200px;
-        min-width: 1010px;
+        min-width: var(--content-max-width);
         margin: 0 auto;
     }
 body > div[id^="SW_"] #SW_mainTM {
@@ -4989,46 +5066,412 @@ body > div[id^="SW_"] #SW_mainTM {
 body > div[id^="SW_"] #SW_contentTM {
         width: 800px;
     }
-body > div[id^="SW_"] #SW_mainSM {
-        padding: 0;
-    }
 body > div[id^="SW_"] #SW_rightSideMiddleSM {
+        display: flex;
+        flex-direction: column;
+        position: relative;
         width: 100%;
+        overflow: initial;
+        padding: 0 1rem;
+
+        /* global content text */
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 140%;
+        color: #646864;
     }
+@media (min-width: 768px) {
+body > div[id^="SW_"] #SW_rightSideMiddleSM {
+            padding: 0 2rem
+    }
+        }
+@media (min-width: 1024px) {
+body > div[id^="SW_"] #SW_rightSideMiddleSM {
+            flex-direction: row-reverse;
+            padding: 0 4rem
+    }
+        }
 body > div[id^="SW_"] .sw-content-sm {
         margin-right: 0px;
     }
 body > div[id^="SW_"] #SW_menuSideSM {
-        width: 250px;
+        width: 100%;
         margin: 0;
-        float: right;
+        float: none;
     }
+@media (min-width: 1024px) {
+body > div[id^="SW_"] #SW_menuSideSM {
+            width: 250px
+    }
+        }
 body > div[id^="SW_"] #SW_menuSideBox {
-        width: 250px;
         border: none;
-        margin-top: 0;
+        margin-top: var(--top-offset-mobile);
+        padding: 0;
+        width: 100%;
+        min-height: 100px;
     }
+@media (min-width: 1024px) {
+body > div[id^="SW_"] #SW_menuSideBox {
+            min-height: 200px;
+            width: 220px;
+            padding: 10px 10px 5px 0px;
+            margin-left: 2rem;
+            margin-top: var(--top-offset)
+    }
+        }
+body > div[id^="SW_"] #SW_menuSideBox.disable-top-offset {
+            padding: 0;
+        }
+body > div[id^="SW_"] #SW_menuSideBox #SW_sideMenuList_LogIn {
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+@media (min-width: 1024px) {
+body > div[id^="SW_"] #SW_menuSideBox #SW_sideMenuList_LogIn {
+                justify-content: flex-end
+        }
+            }
+body > div[id^="SW_"] #SW_menuSideBox #SW_sideMenuList_LogIn a {
+                background: #00B2C2;
+                width: 178px;
+                height: 40px;
+                display: inline-block;
+                padding: 12px 30px;
+                cursor: pointer;
+                color: #FFFFFF;
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 800;
+                font-size: 14px;
+                line-height: 16px;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+            }
 body > div[id^="SW_"] #SW_sideMenuGreeting {
-        padding: 9px 20px;
+        padding: 8px;
     }
+body > div[id^="SW_"] #SW_sideMenuGreeting strong {
+            font-weight: 600;
+        }
 body > div[id^="SW_"] #SW_contentSM {
         width: auto;
         float: none;
-        overflow: hidden;
+        margin-top: 0;
+        flex: 1;
     }
+/* Gradient title - from heading <h*> */
+body > div[id^="SW_"] #SW_contentSM.with-heading {
+            flex: 1;
+            padding-top: 0;
+            padding-bottom: 2rem;
+        }
+body > div[id^="SW_"] #SW_contentSM.with-heading.keep-top-offset {
+                padding-top: var(--top-offset);
+            }
+@media (min-width: 1024px) {
+body > div[id^="SW_"] #SW_contentSM.with-heading {
+                padding-top: var(--top-offset);
+                padding-bottom: var(--content-y-gutter)
+        }
+            }
+body > div[id^="SW_"] #SW_contentSM.with-heading::before {
+                content: "";
+                width: 100%;
+                height: var(--top-heading-height);
+                background: #F5F5F5;
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+@media (min-width: 1024px) {
+body > div[id^="SW_"] #SW_contentSM.with-heading::before {
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 200vw
+            }
+                }
+body > div[id^="SW_"] #SW_contentSM.with-heading h2 {
+                background-color: #F5F5F5;
+                background: linear-gradient(89.56deg, #00B2C2 22.31%, #1E90FF 74.68%);
+                background-size: 100%;
+                -webkit-background-clip: text;
+                -moz-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                -moz-text-fill-color: transparent;
+                background-clip: text;
+                text-fill-color: tranparent;
+
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                margin: 0;
+                padding: 0 1rem;
+                font-size: 2rem;
+                font-weight: 600;
+                line-height: 120%;
+                text-align: center;
+                min-height: var(--top-heading-height);
+            }
+@media (min-width: 768px) {
+body > div[id^="SW_"] #SW_contentSM.with-heading h2 {
+                    padding: 0 2rem
+            }
+                }
+@media (min-width: 1024px) {
+body > div[id^="SW_"] #SW_contentSM.with-heading h2 {
+                    font-size: 3rem;
+                    padding: 0 4rem
+            }
+                }
+body > div[id^="SW_"] #SW_contentSM.with-heading > div > div:not(:last-child) {
+                    margin-bottom: 1.5rem;
+                }
+body > div[id^="SW_"] #SW_contentSM.with-heading > div p:last-child {
+                    margin-bottom: 0;
+                }
+body > div[id^="SW_"] #SW_contentSM .sw-center-auto,
+        body > div[id^="SW_"] #SW_contentSM .sw-center-750 {
+            position: unset;
+        }
+body > div[id^="SW_"] #SW_contentSM form {
+            overflow-x: auto;
+        }
+/* Gradient title - from fieldset>legend */
+body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Logon"]):not([action*="Register"]) fieldset, body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Register"]) fieldset {
+                padding: 1rem 1rem 2rem;
+                min-width: unset;
+                background-color: #f9f9f9;
+                margin: 2rem 0;
+            }
+@media (min-width: 1024px) {
+body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Logon"]):not([action*="Register"]) fieldset, body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Register"]) fieldset {
+                    padding: var(--top-offset) 1rem var(--content-y-gutter);
+                    margin: 0;
+                    background-color: unset
+            }
+                }
+body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Logon"]):not([action*="Register"]) fieldset::before, body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Register"]) fieldset::before {
+                    content: "";
+                    width: 100%;
+                    height: var(--top-heading-height);
+                    background: #F5F5F5;
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+@media (min-width: 1024px) {
+body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Logon"]):not([action*="Register"]) fieldset::before, body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Register"]) fieldset::before {
+                        width: 200vw;
+                        left: 50%;
+                        transform: translateX(-50%)
+                }
+                    }
+body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Logon"]):not([action*="Register"]) fieldset legend, body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Logon"]):not([action*="Register"]) fieldset h1, body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Register"]) fieldset legend, body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Register"]) fieldset h1 {
+                    background-color: #F5F5F5;
+                    background: linear-gradient(89.56deg, #00B2C2 22.31%, #1E90FF 74.68%);
+                    background-size: 100%;
+                    -webkit-background-clip: text;
+                    -moz-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    -moz-text-fill-color: transparent;
+                    background-clip: text;
+                    text-fill-color: tranparent;
+
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    text-align: center;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    margin: 0;
+                    margin-inline: auto;
+                    min-height: var(--top-heading-height);
+                    font-size: 2rem;
+                    font-weight: 600;
+                    line-height: 120%;
+                }
+@media (min-width: 1024px) {
+body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Logon"]):not([action*="Register"]) fieldset legend, body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Logon"]):not([action*="Register"]) fieldset h1, body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Register"]) fieldset legend, body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Register"]) fieldset h1 {
+                        font-size: 3rem
+                }
+                    }
+/* Profile */
+body > div[id^="SW_"] #SW_contentSM form[action*="Accounts/Logon"] fieldset legend {
+                    margin: 0;
+                }
+body > div[id^="SW_"] #SW_contentSM #SW_accountInfo {
+            margin-top: 0;
+        }
+body > div[id^="SW_"] #SW_contentSM #SW_accountInfo h3 {
+                padding-top: 0;
+            }
+body > div[id^="SW_"] #SW_contentSM #SW_personalInfo + div > .sw-profile-table-cells {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+body > div[id^="SW_"] #SW_contentSM #SW_personalInfo + div > .sw-profile-table-cells :not(:last-child) {
+                    margin-right: 8px;
+                }
+body > div[id^="SW_"] #SW_contentSM #SW_personalInfo + div > .sw-profile-table-cells a {
+                    margin-left: 6px;
+                }
+@media (max-width: 767px) {
+body > div[id^="SW_"] #SW_contentSM .p-save-parent {
+                text-align: left !important
+        }
+            }
+body > div[id^="SW_"] #SW_contentSM #SW_reviewFilters {
+            overflow-x: auto !important;
+        }
+body > div[id^="SW_"] #SW_contentSM #SW_reviewFilters input[type="button"] {
+                margin: 0;
+            }
+body > div[id^="SW_"] #SW_contentSM #SW_reviewFilters td[style] {
+                text-align: left !important;
+            }
+body > div[id^="SW_"] #SW_contentSM #SW_reviewList {
+            min-width: unset !important;
+        }
+body > div[id^="SW_"] #SW_contentSM #SW_reviewList #Paging {
+                margin-top: 2rem;
+            }
+body > div[id^="SW_"] #SW_contentSM #SW_reviewList .sw-scroll-box {
+                border: 0;
+            }
+body > div[id^="SW_"] #SW_contentSM #SW_tableApplicantHome .gen-appplications-col-parent {
+                display: flex;
+                flex-direction: column;
+            }
+@media (max-width: 1023px) {
+                    body > div[id^="SW_"] #SW_contentSM #SW_tableApplicantHome .gen-appplications-col-parent > td {
+                        padding: 0 !important;
+                        border: 0;
+                    }
+
+                        body > div[id^="SW_"] #SW_contentSM #SW_tableApplicantHome .gen-appplications-col-parent > td:not(:last-child) {
+                            margin-bottom: 2rem;
+                        }
+                }
+@media (min-width: 1024px) {
+body > div[id^="SW_"] #SW_contentSM #SW_tableApplicantHome .gen-appplications-col-parent {
+                    display: initial
+            }
+                }
+/* CTAs */
+body > div[id^="SW_"] #SW_contentSM #SW_sideMenuList_LogIn a,
+        body > div[id^="SW_"] #SW_contentSM input#btnLogin[type="submit"],
+        body > div[id^="SW_"] #SW_contentSM input[type="button"],
+        body > div[id^="SW_"] #SW_contentSM input#R_Submit,
+        body > div[id^="SW_"] #SW_contentSM input#P_Save {
+            background: #00B2C2;
+            height: auto;
+            display: inline-block;
+            margin: 32px 0;
+            padding: 12px 30px;
+            cursor: pointer;
+            color: #FFFFFF;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 800;
+            font-size: 14px;
+            line-height: 16px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            white-space: normal;
+        }
+@media (min-width: 768px) {
+body > div[id^="SW_"] #SW_contentSM #SW_sideMenuList_LogIn a,
+        body > div[id^="SW_"] #SW_contentSM input#btnLogin[type="submit"],
+        body > div[id^="SW_"] #SW_contentSM input[type="button"],
+        body > div[id^="SW_"] #SW_contentSM input#R_Submit,
+        body > div[id^="SW_"] #SW_contentSM input#P_Save {
+                height: 40px
+        }
+            }
+/* Input fields */
+body > div[id^="SW_"] #SW_contentSM select,
+        body > div[id^="SW_"] #SW_contentSM input:not([type="submit"]):not([type="button"]) {
+            max-width: 365px;
+            height: 33px;
+            background: #FFFFFF;
+            border: 1px solid #646864;
+            padding: 0 0 0 15px;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 140%;
+            color: #646864;
+        }
+/* Form table */
+body > div[id^="SW_"] #SW_contentSM fieldset {
+            border: 0;
+        }
+/**
+             * border spacing used margin and padding doesn't work for `<tr>`
+             */
+body > div[id^="SW_"] #SW_contentSM fieldset tr:not(:last-child) {
+                border-bottom: 1.25rem solid transparent;
+            }
+body > div[id^="SW_"] #SW_contentSM h3 {
+            background: none;
+            font-family: 'Raleway';
+            font-style: normal;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 120%;
+            color: #646864;
+            text-align: left;
+            padding: 40px 0 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #0086D6;
+        }
+@media (min-width: 751px) {
+body > div[id^="SW_"] #SW_contentSM h3 {
+                font-size: 32px;
+                margin-bottom: 30px;
+                padding-top: 30px
+        }
+            }
+body > div[id^="SW_"] #SW_contentSM a {
+            color: #0086D6;
+        }
 body > div[id^="SW_"] #SW_sideMenuList {
         position: relative;
-        margin: 10px 10px 0 -25px;
+        margin: 0;
         text-align: left;
     }
 body > div[id^="SW_"] #SW_sideMenuList li {
             display: block;
             list-style: none;
             margin: 0 0 0 -15px;
-            padding: 8px 0px 12px 0px;
+            padding: 0;
         }
+body > div[id^="SW_"] #SW_sideMenuList li:not(:last-child) a {
+                    border-bottom: 1px solid #e9e9e9;
+                }
+body > div[id^="SW_"] #SW_sideMenuList li a {
+                display: block;
+                padding: 8px;
+                color: #0086D6;
+                text-transform: capitalize;
+            }
 body > div[id^="SW_"] #SW_sideMenuList li ul {
-                margin-top: 10px;
+                padding-left: 2rem;
             }
 body > div[id^="SW_"] [id^=SW_sideSubmenuList] li {
             margin: 0 0 0 -20px !important;
@@ -5204,9 +5647,7 @@ html, body {
                         width: auto
                 }
                             #donorConnect #content #contentArea #leftPane table td.BBFieldCaption {
-                                width: 0%;
                                 padding-right: 10px;
-                                white-space: nowrap;
                             }
                             #donorConnect #content #contentArea #leftPane table td.BBFieldControlCell {
                                 width: 375px;
@@ -5242,7 +5683,7 @@ html, body {
                         width: 87.2vw
                 }
                     }
-#donorConnect #content #contentArea #leftPane > h1 {
+#donorConnect #content #contentArea #leftPane > h1:first-of-type {
                     background: linear-gradient(89.56deg, #00B2C2 22.31%, #1E90FF 74.68%);
                     min-height: 150px;
                     -webkit-background-clip: text;
@@ -5264,12 +5705,12 @@ html, body {
                     position: relative;
                 }
 @media (min-width: 751px) {
-#donorConnect #content #contentArea #leftPane > h1 {
+#donorConnect #content #contentArea #leftPane > h1:first-of-type {
                         min-height: 222px;
                         font-size: 48px
                 }
                     }
-#donorConnect #content #contentArea #leftPane > h1::before {
+#donorConnect #content #contentArea #leftPane > h1:first-of-type::before {
                         content: "";
                         width: 200vw;
                         height: 100%;
@@ -5484,6 +5925,10 @@ html, body {
                         margin-top: 30px
                 }
                     }
+#donorConnect #content #contentArea #leftPane input[name="PC12660$ctl00$btnSubmit"],
+                #donorConnect #content #contentArea #leftPane input[value="Submit"] {
+                    margin-right: 1rem;
+                }
 #donorConnect #content #contentArea #leftPane p, #donorConnect #content #contentArea #leftPane ul {
                     margin: 0 0 1.875em;
                 }
@@ -5501,18 +5946,6 @@ html, body {
 [x-cloak] {
     display: none !important;
 }
-/* grants system */
-#SW_page_wrapper {
-    min-height: 100vh;
-}
-#SW_page_wrapper #SW_page_spacer {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-    }
-#SW_page_wrapper #SW_mainSM {
-        flex-grow: 1;
-    }
 /*! purgecss end ignore */
 /* Add custom utilities */
 .responsive-embed {
