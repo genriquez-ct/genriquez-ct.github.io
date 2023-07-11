@@ -2317,6 +2317,18 @@ body.elementor-editor-active header {
 #donorConnect #wrapper.twoColumn #contentArea #leftPane.has-filter-table table:not(:last-child) {
                 margin-bottom: 1rem;
               }
+#donorConnect #wrapper.twoColumn #contentArea #leftPane.has-filter-table table.DTGrid {
+                margin-top: 1rem;
+                width: 100%;
+              }
+#donorConnect #wrapper.twoColumn #contentArea #leftPane.has-filter-table table.DTGrid span {
+                  display: inline-block;
+                  margin-bottom: 1rem;
+                }
+#donorConnect #wrapper.twoColumn #contentArea #leftPane.has-filter-table table.DTGrid input[type="text"] {
+                  max-width: unset;
+                  margin: 0;
+                }
 #donorConnect #wrapper.twoColumn #contentArea #leftPane.has-filter-table table.DTGrid input[type="submit"] {
                   margin: 0 0 2rem !important;
                 }
@@ -2327,18 +2339,6 @@ body.elementor-editor-active header {
 #donorConnect #wrapper.twoColumn #contentArea #leftPane.has-filter-table #PC12674_ctl00_sasdSharedAlphaSelect_pnlAlphaSelect a {
                 padding: 0 2px;
               }
-#donorConnect #wrapper.twoColumn #contentArea #leftPane.has-filter-table #PC12674_ctl00_tdGrantDetails_pnlUserSize table.DTGrid {
-                margin-top: 1rem;
-                width: 100%;
-              }
-#donorConnect #wrapper.twoColumn #contentArea #leftPane.has-filter-table #PC12674_ctl00_tdGrantDetails_pnlUserSize table.DTGrid span#PC12674_ctl00_tdGrantDetails_lblPageSize {
-                  display: inline-block;
-                  margin-bottom: 1rem;
-                }
-#donorConnect #wrapper.twoColumn #contentArea #leftPane.has-filter-table #PC12674_ctl00_tdGrantDetails_pnlUserSize table.DTGrid input[type="text"] {
-                  max-width: unset;
-                  margin: 0;
-                }
 #donorConnect #wrapper.twoColumn #contentArea #leftPane.has-filter-table #PC12690_ctl00_pnlDefaultButtonControl span#PC12690_ctl00_lblToPrompt {
                 margin-left: 2rem;
               }
