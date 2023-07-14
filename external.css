@@ -4107,6 +4107,9 @@ body.elementor-editor-active header {
 #donorConnect #PC11253_ctl00_pnlDefaultButtonControl .FundSummaryFieldControlCell {
             width: 25%;
         }
+#donorConnect #PC13080_Recurrence_trRange .wsNowrap {
+            white-space: normal;
+        }
 #donorConnect table.FSGrid {
         width: 100%;
     }
@@ -4811,12 +4814,20 @@ body.elementor-editor-active header {
         flex-grow: 1;
     }
 body > div[id^="SW_"] {
-    --content-max-width: 1010px;
-    --top-heading-height: 220px;
-    --content-y-gutter: 64px;
-    --content-y-gutter-mobile: 32px;
-    --top-offset: calc(var(--top-heading-height) + var(--content-y-gutter));
-    --top-offset-mobile: calc(var(--top-heading-height) + var(--content-y-gutter-mobile));   
+    --content-min-width: 1010px;
+
+    /* Spacing */
+    --heading-gutter-top: 80px;
+    --heading-gutter-bottom: 80px;
+    --login-cta-top-offset: 80px;
+    --login-cta-top-offset-mobile: 32px;
+
+    /* Colors */
+    --ccf-aqua: #00B2C2;
+    --ccf-blue: #0086D6;
+    --ccf-yellow: #FFB71B;
+    --ccf-black: #212721;
+    --ccf-70-black: #646864;   
 }
 body > div[id^="SW_"] img {
         border-style: none;
@@ -5022,13 +5033,13 @@ body > div[id^="SW_"] .footerOffsetColumn {
         padding-top: 3.55em;
     }
 body > div[id^="SW_"] .sw-center-750 {
-        margin: auto;
+        margin: unset;
     }
 body > div[id^="SW_"] .sw-center-650 {
-        margin: auto;
+        margin: unset;
     }
 body > div[id^="SW_"] .sw-center-500 {
-        margin: auto;
+        margin: unset;
     }
 body > div[id^="SW_"] .sw-saved-app-box {
         border-radius: 0px;
@@ -5058,12 +5069,12 @@ body > div[id^="SW_"] #SW_mainSM {
     }
 @media (min-width: 1024px) {
 body > div[id^="SW_"] #SW_mainSM {
-            min-width: var(--content-max-width)
+            min-width: var(--content-min-width)
     }
         }
 body > div[id^="SW_"] #SW_app_spacer {
         max-width: 1200px;
-        min-width: var(--content-max-width);
+        min-width: var(--content-min-width);
         margin: 0 auto;
     }
 body > div[id^="SW_"] #SW_mainTM {
@@ -5086,7 +5097,7 @@ body > div[id^="SW_"] #SW_rightSideMiddleSM {
         font-weight: 400;
         font-size: 16px;
         line-height: 140%;
-        color: #646864;
+        color: var(--ccf-70-black);
     }
 @media (min-width: 768px) {
 body > div[id^="SW_"] #SW_rightSideMiddleSM {
@@ -5114,10 +5125,10 @@ body > div[id^="SW_"] #SW_menuSideSM {
         }
 body > div[id^="SW_"] #SW_menuSideBox {
         border: none;
-        margin-top: var(--top-offset-mobile);
+        margin-top: var(--login-cta-top-offset-mobile);
         padding: 0;
         width: 100%;
-        min-height: 100px;
+        min-height: auto;
     }
 @media (min-width: 1024px) {
 body > div[id^="SW_"] #SW_menuSideBox {
@@ -5125,7 +5136,7 @@ body > div[id^="SW_"] #SW_menuSideBox {
             width: 220px;
             padding: 10px 10px 5px 0px;
             margin-left: 2rem;
-            margin-top: var(--top-offset)
+            margin-top: var(--login-cta-top-offset)
     }
         }
 body > div[id^="SW_"] #SW_menuSideBox.disable-top-offset {
@@ -5142,8 +5153,7 @@ body > div[id^="SW_"] #SW_menuSideBox #SW_sideMenuList_LogIn {
         }
             }
 body > div[id^="SW_"] #SW_menuSideBox #SW_sideMenuList_LogIn a {
-                background: #00B2C2;
-                width: 178px;
+                background: var(--ccf-aqua);
                 height: 40px;
                 display: inline-block;
                 padding: 12px 30px;
@@ -5164,166 +5174,109 @@ body > div[id^="SW_"] #SW_sideMenuGreeting strong {
             font-weight: 600;
         }
 body > div[id^="SW_"] #SW_contentSM {
+        flex: 1;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        margin-top: 0;
         width: auto;
         float: none;
-        margin-top: 0;
-        flex: 1;
     }
-/* Gradient title - from heading <h*> */
-body > div[id^="SW_"] #SW_contentSM.with-heading {
-            flex: 1;
-            padding-top: 0;
-            padding-bottom: 2rem;
-        }
-body > div[id^="SW_"] #SW_contentSM.with-heading.keep-top-offset {
-                padding-top: var(--top-offset);
-            }
 @media (min-width: 1024px) {
-body > div[id^="SW_"] #SW_contentSM.with-heading {
-                padding-top: var(--top-offset);
-                padding-bottom: var(--content-y-gutter)
+body > div[id^="SW_"] #SW_contentSM {
+            padding-top: var(--heading-gutter-top);
+            padding-bottom: var(--heading-gutter-bottom)
+    }
         }
-            }
-body > div[id^="SW_"] #SW_contentSM.with-heading::before {
-                content: "";
-                width: 100%;
-                height: var(--top-heading-height);
-                background: #F5F5F5;
-                display: block;
-                position: absolute;
-                top: 0;
-                left: 0;
-            }
-@media (min-width: 1024px) {
-body > div[id^="SW_"] #SW_contentSM.with-heading::before {
-                    left: 50%;
-                    transform: translateX(-50%);
-                    width: 200vw
-            }
-                }
-body > div[id^="SW_"] #SW_contentSM.with-heading h2 {
-                background-color: #F5F5F5;
-                background: linear-gradient(89.56deg, #00B2C2 22.31%, #1E90FF 74.68%);
-                background-size: 100%;
-                -webkit-background-clip: text;
-                -moz-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                -moz-text-fill-color: transparent;
-                background-clip: text;
-                text-fill-color: tranparent;
-
-                position: absolute;
-                top: 0;
-                left: 50%;
-                transform: translateX(-50%);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 100%;
-                margin: 0;
-                padding: 0 1rem;
+/* Primary Heading */
+body > div[id^="SW_"] #SW_contentSM.is-guest h2 {
                 font-size: 2rem;
-                font-weight: 600;
-                line-height: 120%;
-                text-align: center;
-                min-height: var(--top-heading-height);
+                color: var(--ccf-blue);
             }
-@media (min-width: 768px) {
-body > div[id^="SW_"] #SW_contentSM.with-heading h2 {
-                    padding: 0 2rem
-            }
-                }
 @media (min-width: 1024px) {
-body > div[id^="SW_"] #SW_contentSM.with-heading h2 {
-                    font-size: 3rem;
-                    padding: 0 4rem
+body > div[id^="SW_"] #SW_contentSM.is-guest h2 {
+                    font-size: 2.5rem
             }
                 }
-body > div[id^="SW_"] #SW_contentSM.with-heading > div > div:not(:last-child) {
+body > div[id^="SW_"] #SW_contentSM.is-guest > div > div:not(:last-child) {
                     margin-bottom: 1.5rem;
                 }
-body > div[id^="SW_"] #SW_contentSM.with-heading > div p:last-child {
+body > div[id^="SW_"] #SW_contentSM.is-guest > div p:last-child {
                     margin-bottom: 0;
                 }
+body > div[id^="SW_"] #SW_contentSM.is-guest p {
+                text-align: left;
+            }
 body > div[id^="SW_"] #SW_contentSM .sw-center-auto,
         body > div[id^="SW_"] #SW_contentSM .sw-center-750 {
             position: unset;
+            width: auto;
         }
 body > div[id^="SW_"] #SW_contentSM form {
             overflow-x: auto;
         }
-/* Gradient title - from fieldset>legend */
+/* Fieldset forms */
 body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Logon"]):not([action*="Register"]) fieldset, body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Register"]) fieldset {
-                padding: 1rem 1rem 2rem;
                 min-width: unset;
-                background-color: #f9f9f9;
-                margin: 2rem 0;
             }
-@media (min-width: 1024px) {
-body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Logon"]):not([action*="Register"]) fieldset, body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Register"]) fieldset {
-                    padding: var(--top-offset) 1rem var(--content-y-gutter);
-                    margin: 0;
-                    background-color: unset
-            }
-                }
-body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Logon"]):not([action*="Register"]) fieldset::before, body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Register"]) fieldset::before {
-                    content: "";
-                    width: 100%;
-                    height: var(--top-heading-height);
-                    background: #F5F5F5;
-                    display: block;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                }
-@media (min-width: 1024px) {
-body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Logon"]):not([action*="Register"]) fieldset::before, body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Register"]) fieldset::before {
-                        width: 200vw;
-                        left: 50%;
-                        transform: translateX(-50%)
-                }
-                    }
-body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Logon"]):not([action*="Register"]) fieldset legend, body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Logon"]):not([action*="Register"]) fieldset h1, body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Register"]) fieldset legend, body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Register"]) fieldset h1 {
-                    background-color: #F5F5F5;
-                    background: linear-gradient(89.56deg, #00B2C2 22.31%, #1E90FF 74.68%);
-                    background-size: 100%;
-                    -webkit-background-clip: text;
-                    -moz-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    -moz-text-fill-color: transparent;
-                    background-clip: text;
-                    text-fill-color: tranparent;
-
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    text-align: center;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    width: 100%;
-                    margin: 0;
-                    margin-inline: auto;
-                    min-height: var(--top-heading-height);
+body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Logon"]):not([action*="Register"]) fieldset h1, body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Register"]) fieldset h1 {
                     font-size: 2rem;
-                    font-weight: 600;
-                    line-height: 120%;
+                    color: var(--ccf-blue);
                 }
-@media (min-width: 1024px) {
-body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Logon"]):not([action*="Register"]) fieldset legend, body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Logon"]):not([action*="Register"]) fieldset h1, body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Register"]) fieldset legend, body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Register"]) fieldset h1 {
-                        font-size: 3rem
+@media (min-width: 768px) {
+body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Logon"]):not([action*="Register"]) fieldset h1, body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Register"]) fieldset h1 {
+                        font-size: 2.5rem
                 }
                     }
-/* Profile */
+body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Logon"]):not([action*="Register"]) fieldset legend, body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Register"]) fieldset legend {
+                    font-size: 1.5rem;
+                    color: var(--ccf-blue);
+                }
+@media (min-width: 768px) {
+body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Logon"]):not([action*="Register"]) fieldset legend, body > div[id^="SW_"] #SW_contentSM form:not([id="SWForm"]):not([action*="Register"]) fieldset legend {
+                        font-size: 2rem
+                }
+                    }
+/* Login form */
+body > div[id^="SW_"] #SW_contentSM form[action*="Accounts/Logon"] .sw-center-500 {
+                margin: unset;
+            }
 body > div[id^="SW_"] #SW_contentSM form[action*="Accounts/Logon"] fieldset legend {
                     margin: 0;
                 }
+body > div[id^="SW_"] #SW_contentSM form[action*="Accounts/Logon"] fieldset input[type="text"],
+                body > div[id^="SW_"] #SW_contentSM form[action*="Accounts/Logon"] fieldset input[type="password"] {
+                    width: 93%;
+                }
+body > div[id^="SW_"] #SW_contentSM form[action*="Accounts/Logon"] input#btnLogin[type="submit"] {
+                display: inline-block;
+                margin: 32px 0;
+                padding: 12px 30px;
+                height: 40px;
+                cursor: pointer;
+                background-color: var(--ccf-yellow, #FFB71B);
+                color: var(--ccf-black);
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 800;
+                font-size: 14px;
+                line-height: 16px;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                white-space: normal;
+            }
 body > div[id^="SW_"] #SW_contentSM #SW_accountInfo {
             margin-top: 0;
+            overflow-x: auto;
         }
 body > div[id^="SW_"] #SW_contentSM #SW_accountInfo h3 {
                 padding-top: 0;
             }
+body > div[id^="SW_"] #SW_contentSM #SW_organizationInfo {
+            overflow-x: auto;
+        }
+body > div[id^="SW_"] #SW_contentSM #SW_personalInfo {
+            overflow-x: auto;
+        }
 body > div[id^="SW_"] #SW_contentSM #SW_personalInfo + div > .sw-profile-table-cells {
                 display: flex;
                 align-items: center;
@@ -5379,17 +5332,14 @@ body > div[id^="SW_"] #SW_contentSM #SW_tableApplicantHome .gen-appplications-co
                 }
 /* CTAs */
 body > div[id^="SW_"] #SW_contentSM #SW_sideMenuList_LogIn a,
-        body > div[id^="SW_"] #SW_contentSM input#btnLogin[type="submit"],
-        body > div[id^="SW_"] #SW_contentSM input[type="button"],
-        body > div[id^="SW_"] #SW_contentSM input#R_Submit,
-        body > div[id^="SW_"] #SW_contentSM input#P_Save {
-            background: #00B2C2;
-            height: auto;
+        body > div[id^="SW_"] #SW_contentSM input[type="button"] {
             display: inline-block;
             margin: 32px 0;
             padding: 12px 30px;
+            height: auto;
             cursor: pointer;
             color: #FFFFFF;
+            background-color: var(--ccf-aqua);
             font-family: 'Montserrat';
             font-style: normal;
             font-weight: 800;
@@ -5401,10 +5351,7 @@ body > div[id^="SW_"] #SW_contentSM #SW_sideMenuList_LogIn a,
         }
 @media (min-width: 768px) {
 body > div[id^="SW_"] #SW_contentSM #SW_sideMenuList_LogIn a,
-        body > div[id^="SW_"] #SW_contentSM input#btnLogin[type="submit"],
-        body > div[id^="SW_"] #SW_contentSM input[type="button"],
-        body > div[id^="SW_"] #SW_contentSM input#R_Submit,
-        body > div[id^="SW_"] #SW_contentSM input#P_Save {
+        body > div[id^="SW_"] #SW_contentSM input[type="button"] {
                 height: 40px
         }
             }
@@ -5414,19 +5361,72 @@ body > div[id^="SW_"] #SW_contentSM select,
             max-width: 365px;
             height: 33px;
             background: #FFFFFF;
-            border: 1px solid #646864;
+            border: 1px solid var(--ccf-70-black);
             padding: 0 0 0 15px;
             font-family: 'Montserrat';
             font-style: normal;
             font-weight: 400;
             font-size: 16px;
             line-height: 140%;
-            color: #646864;
+            color: var(--ccf-70-black);
+        }
+body > div[id^="SW_"] #SW_contentSM .field-validation-error {
+            display: flex;
+            align-items: center;
+            height: 33px;
         }
 /* Form table */
 body > div[id^="SW_"] #SW_contentSM fieldset {
-            border: 0;
+            padding: 10px 20px 30px;
+            border: 1px solid var(--ccf-70-black);
         }
+body > div[id^="SW_"] #SW_contentSM fieldset legend {
+                color: var(--ccf-blue);
+                padding: 10px;
+                font-family: Raleway;
+                font-size: 1.5rem;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 120%;
+            }
+@media (min-width: 768px) {
+body > div[id^="SW_"] #SW_contentSM fieldset legend {
+                    font-size: 2rem
+            }
+                }
+body > div[id^="SW_"] #SW_contentSM fieldset select#OrgID {
+                margin-top: 1rem;
+            }
+body > div[id^="SW_"] #SW_contentSM fieldset select#OrgID + .sw-required-field {
+                    padding-top: 1.5rem;
+                    display: inline-block;
+                }
+body > div[id^="SW_"] #SW_contentSM fieldset input[type="submit"],
+            body > div[id^="SW_"] #SW_contentSM fieldset input#R_Submit,
+            body > div[id^="SW_"] #SW_contentSM fieldset input#P_Save {
+                display: inline-block;
+                margin: 32px 0;
+                padding: 12px 30px;
+                height: auto;
+                cursor: pointer;
+                background-color: var(--ccf-yellow, #FFB71B);
+                color: var(--ccf-black);
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 800;
+                font-size: 14px;
+                line-height: 16px;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                white-space: normal;
+            }
+@media (min-width: 768px) {
+body > div[id^="SW_"] #SW_contentSM fieldset input[type="submit"],
+            body > div[id^="SW_"] #SW_contentSM fieldset input#R_Submit,
+            body > div[id^="SW_"] #SW_contentSM fieldset input#P_Save {
+                    height: 40px
+            }
+                }
 /**
              * border spacing used margin and padding doesn't work for `<tr>`
              */
@@ -5440,7 +5440,7 @@ body > div[id^="SW_"] #SW_contentSM h3 {
             font-size: 20px;
             font-weight: 600;
             line-height: 120%;
-            color: #646864;
+            color: var(--ccf-70-black);
             text-align: left;
             padding: 40px 0 20px;
             margin-bottom: 20px;
@@ -5948,6 +5948,9 @@ html, body {
                     }
 #donorConnect #content #contentArea #leftPane .BBFormValidatorSummary ul {
                         margin-top: 1.875em;
+                    }
+#donorConnect #content #contentArea #leftPane .BBFormValidatorSummary li {
+                        color: inherit;
                     }
 [x-cloak] {
     display: none !important;
